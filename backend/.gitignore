@@ -1,0 +1,13 @@
+__pycache__
+.idea
+config
+config.yaml
+config.backup.yaml
+*.db
+.vscode
+files
+logs
+*.log
+ChatGPT-Proxy-V4
+*.json
+data

@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "chatgpt-share-backend"
+version = "0.4.0-alpha4"
+description = ""
+authors = ["moeakwak <moeakwak@gmail.com>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.96.0"
+uvicorn = "^0.22.0"
+aiosqlite = "^0.19.0"
+sqlalchemy = "^2.0.9"
+fastapi-users-db-sqlalchemy = "^5.0.0"
+revchatgpt = "5.0.0"
+greenlet = "^2.0.2"
+websockets = "^11.0.3"
+setuptools = "^67.6.0"
+python-dateutil = "^2.8.2"
+pyyaml = "^6.0"
+alembic = "^1.10.3"
+colorlog = "^6.7.0"
+asgiref = "^3.6.0"
+aiocron = "^1.8"
+ruamel-yaml = "^0.17.26"
+beanie = "^1.19.0"
+httpx = "^0.24.0"
+strenum = "^0.4.10"
+pydantic = "^1.10.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
