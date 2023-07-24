@@ -8,6 +8,15 @@ RUN npm install pnpm -g
 RUN pnpm install
 RUN pnpm build
 
+FROM golang:1.20-alpine AS PoeapiProxy
+
+WORKDIR /app
+COPY ./poeproxy .
+
+RUN go build 
+
+
+
 FROM python:3.10-alpine
 
 ARG PIP_CACHE_DIR=/pip_cache
@@ -23,6 +32,7 @@ RUN pip install -r /tmp/requirements.txt
 COPY Caddyfile /app/Caddyfile
 COPY backend /app/backend
 COPY --from=FrontendBuilder /app/frontend/dist /app/dist
+COPY --from=PoeapiProxy /
 
 WORKDIR /app
 
