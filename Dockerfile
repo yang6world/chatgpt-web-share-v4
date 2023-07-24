@@ -32,7 +32,7 @@ RUN pip install -r /tmp/requirements.txt
 COPY Caddyfile /app/Caddyfile
 COPY backend /app/backend
 COPY --from=FrontendBuilder /app/frontend/dist /app/dist
-COPY --from=PoeapiProxy /
+COPY --from=PoeapiProxy /app/poe-openai-proxy /app
 
 WORKDIR /app
 
