@@ -1,6 +1,9 @@
 # chatgpt-web-share-v4
 ### Frok from moeakwak/chatgpt-web-share
 添加了poeapi等多api设置，添加了多个poe模型支持
+## 待实现功能
+ - ppt生成器
+ - AI绘画
 ## Nginx配置方法
 ```Nginx
 server {
