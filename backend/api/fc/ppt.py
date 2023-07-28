@@ -14,10 +14,18 @@ import openai
 
 from pydantic import Extra, BaseModel
 from typing import Optional
-
+from api.conf import Config, Credentials
+from api.enums import OpenaiApiChatModels, ChatSourceTypes
+from api.exceptions import OpenaiApiException
+from api.models.doc import OpenaiApiChatMessage, OpenaiApiConversationHistoryDocument, OpenaiApiChatMessageMetadata, \
+    OpenaiApiChatMessageTextContent
+from api.schemas.openai_schemas import OpenaiChatResponse
+from utils.common import singleton_with_lock
+from utils.logger import get_logger
+credentials = Credentials()
 
 class Config(BaseModel, extra=Extra.ignore):
-    openai_api_key: Optional[str] = ""
+    openai_api_key: Optional[str] = credentials.openai_api_key
     openai_model_name: Optional[str] = "gpt-3.5-turbo"
     openai_http_proxy: Optional[str] = None
     slides_limit: Optional[str] = 10
@@ -29,10 +37,9 @@ class ConfigError(Exception):
 
 plugin_config = Config.parse_obj()
 
-if not plugin_config.openai_api_key:
-    openai.api_key = ""
-else:
-    openai.api_key = plugin_config.openai_api_key
+
+openai.api_key = credentials.openai_api_key
+
 
 bad_coding_practice = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in
                               range(16))
