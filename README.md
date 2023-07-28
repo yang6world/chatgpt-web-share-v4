@@ -5,6 +5,7 @@
 ## 待实现功能
  - ppt生成器
  - AI绘画
+ - .....
 ## Nginx配置方法
 ```Nginx
 server {
